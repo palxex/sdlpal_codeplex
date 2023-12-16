@@ -15,7 +15,8 @@ LIBMAD_FILES = libmad/bit.c libmad/decoder.c libmad/fixed.c libmad/frame.c \
 FILES = rixplay.cpp text.c font.c itemmenu.c scene.c palcommon.c script.c \
 	util.c play.c getopt.c input.c uibattle.c game.c magicmenu.c map.c \
 	ending.c uigame.c rngplay.c ui.c global.c main.c fight.c \
-	video.c palette.c sound.c res.c battle.c yj1.c
+	video.c palette.c sound.c res.c battle.c yj1.c midi.c \
+	native_midi/native_midi_common.c native_midi/native_midi_win32.c
 
 FILES += $(ADPLUG_FILES)
 FILES += $(LIBMAD_FILES)

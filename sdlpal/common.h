@@ -56,11 +56,11 @@ extern "C"
 #endif
 
 #ifndef max
-#define max(a, b)    (((a) > (b)) ? (a) : (b))
+# define max fmax
 #endif
 
 #ifndef min
-#define min(a, b)    (((a) < (b)) ? (a) : (b))
+# define min fmin
 #endif
 
 #if defined (__SYMBIAN32__)

@@ -25,7 +25,12 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+#ifdef __clang__
+#define INLINE          static
+#else
 #define INLINE          __inline
+#endif
+
 #define HAS_YM3812      1
 
 #include <stdio.h>
@@ -419,7 +424,7 @@ INLINE void set_sl_rr(FM_OPL *OPL,int slot,int v) {
 /* operator output calcrator */
 #define OP_OUT(slot,env,con)   slot->wavetable[((slot->Cnt+con)/(0x1000000/SIN_ENT))&(SIN_ENT-1)][env]
 /* ---------- calcrate one of channel ---------- */
-INLINE void OPL_CALC_CH( OPL_CH *CH ) {
+void OPL_CALC_CH( OPL_CH *CH ) {
    UINT32 env_out;
    OPL_SLOT *SLOT;
 
@@ -457,7 +462,7 @@ INLINE void OPL_CALC_CH( OPL_CH *CH ) {
 
 /* ---------- calcrate rythm block ---------- */
 #define WHITE_NOISE_db 6.0
-INLINE void OPL_CALC_RH( OPL_CH *CH ) {
+void OPL_CALC_RH( OPL_CH *CH ) {
    UINT32 env_tam,env_sd,env_top,env_hh;
    int whitenoise = (rand()&1)*(WHITE_NOISE_db/EG_STEP);
    INT32 tone8;
